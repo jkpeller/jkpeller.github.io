@@ -1,11 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playlist Proposal</title>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Bone Wellness: Unified Integration Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Warm Neutrals & Deep Teal -->
+    <!-- Application Structure Plan: The SPA uses a linear, narrative-driven dashboard layout. It begins with high-level ROI and executive summaries to capture attention, transitions into an interactive architectural breakdown (the 3-Track plan) to explain the 'how' without overwhelming non-technical users, visually quantifies the ROI via interactive charts, and concludes with clear, selectable investment tiers. This ensures both business and technical stakeholders can extract the information they need easily. -->
+    <!-- Visualization & Content Choices: 1. Hero Metrics: HTML/Tailwind styling for immediate impact. 2. Problem/Solution: Side-by-side comparison cards for stark contrast. 3. 3-Track Architecture: Interactive JS tabs to chunk complex technical details (NO SVG/Mermaid). 4. ROI Chart: Chart.js bar chart comparing current vs projected metrics to visualize the value of the 'No-Show' strategy. 5. Investment: Interactive selectable pricing cards with JS to update selected state. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
+    <style>
+        body { 
+            background-color: #F9FAFB; 
+            color: #1F2937; 
+            scroll-behavior: smooth;
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px; 
+            max-height: 400px; 
+        }
+        @media (min-width: 768px) { 
+            .chart-container { height: 350px; } 
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="fixed w-full z-50 top-0 bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 font-bold text-teal-800 text-xl">
+                    <span class="text-2xl">&#10022;</span> Vital Bone Wellness
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#summary" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition">Summary</a>
+                    <a href="#architecture" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition">Architecture</a>
+                    <a href="#roi" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition">ROI & Metrics</a>
+                    <a href="#roadmap" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition">Roadmap</a>
+                    <a href="#investment" class="bg-teal-700 text-white hover:bg-teal-800 px-4 py-2 rounded-md text-sm font-medium transition">Investment Tiers</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 bg-gradient-to-b from-teal-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <p class="text-teal-700 font-semibold tracking-wide uppercase text-sm mb-3">Prepared by Joshua Pellerin, Sr. Professional Services Engineer</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">Unified "Wellness OS" Integration</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500 mb-10">
+                Transforming five disjointed locations into a singular, high-conversion platform that automates medical reporting and eliminates front-desk friction.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-teal-100 flex-1 max-w-xs mx-auto w-full">
+                    <div class="text-4xl font-black text-teal-600 mb-2">25%</div>
+                    <div class="text-sm text-gray-600 font-medium">Target No-Show Reduction</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-teal-100 flex-1 max-w-xs mx-auto w-full">
+                    <div class="text-4xl font-black text-teal-600 mb-2">30%</div>
+                    <div class="text-sm text-gray-600 font-medium">Fewer Scheduling Calls</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-teal-100 flex-1 max-w-xs mx-auto w-full">
+                    <div class="text-4xl font-black text-teal-600 mb-2">6-8</div>
+                    <div class="text-sm text-gray-600 font-medium">Week Implementation</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="summary" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Executive Summary & Gap Analysis</h2>
+                <p class="text-lg text-gray-600 max-w-3xl">
+                    This section contrasts the operational bottlenecks currently restricting Vital Bone Wellness with the streamlined, automated future state proposed. Understanding these gaps is critical to validating the project's ROI.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-orange-50 rounded-xl p-8 border border-orange-100">
+                    <h3 class="text-xl font-bold text-orange-800 mb-6 flex items-center gap-2"><span>&#9888;</span> Current State (Pain Points)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3"><span class="text-orange-500 mt-1">&#10007;</span> <span class="text-gray-700"><strong>5 Disjointed WordPress Sites:</strong> Fragmented management and inconsistent branding.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500 mt-1">&#10007;</span> <span class="text-gray-700"><strong>Manual Printing/Scanning:</strong> Bone density reports require heavy staff intervention and are easily lost.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500 mt-1">&#10007;</span> <span class="text-gray-700"><strong>High Call Volume:</strong> No self-service rescheduling leads to overwhelmed front desks.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-orange-500 mt-1">&#10007;</span> <span class="text-gray-700"><strong>Revenue Loss:</strong> Lack of automated follow-ups results in high no-show rates.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-teal-50 rounded-xl p-8 border border-teal-100">
+                    <h3 class="text-xl font-bold text-teal-800 mb-6 flex items-center gap-2"><span>&#10003;</span> Proposed State (The Solution)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3"><span class="text-teal-600 mt-1">&#10003;</span> <span class="text-gray-700"><strong>1 Unified WordPress Instance:</strong> Centrally managed, responsive, and location-aware.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-teal-600 mt-1">&#10003;</span> <span class="text-gray-700"><strong>DICOM/HL7 Edge-to-Cloud Sync:</strong> Automated extraction and secure upload of medical reports.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-teal-600 mt-1">&#10003;</span> <span class="text-gray-700"><strong>Self-Service Portal:</strong> "One-Click" rescheduling and document access for patients.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-teal-600 mt-1">&#10003;</span> <span class="text-gray-700"><strong>Card-on-File & SMS:</strong> Enforced financial commitment and active confirmation loops.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">The "3-Track" Parallel Architecture</h2>
+                <p class="text-lg text-gray-600 max-w-3xl">
+                    To deliver a massive operational shift within 6-8 weeks, we separate the project into three parallel technical workstreams. Click on each track below to explore the specific technical integrations and configurations being implemented.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="flex flex-col sm:flex-row border-b border-gray-200" id="tab-container">
+                    <button class="tab-btn flex-1 py-4 px-6 text-center font-bold text-teal-700 bg-teal-50 border-b-2 border-teal-500 transition focus:outline-none" data-target="track1">
+                        &#128187; Track 1: UI Layer
+                    </button>
+                    <button class="tab-btn flex-1 py-4 px-6 text-center font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50 transition focus:outline-none" data-target="track2">
+                        &#9881; Track 2: Integration Layer
+                    </button>
+                    <button class="tab-btn flex-1 py-4 px-6 text-center font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50 transition focus:outline-none" data-target="track3">
+                        &#128193; Track 3: Data Layer
+                    </button>
+                </div>
+
+                <div class="p-8">
+                    <div id="track1" class="tab-content block fade-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Frontend & Widgets</h3>
+                        <p class="text-gray-600 mb-6">Consolidating the disjointed web presence into a unified, high-conversion 'Front Door'. Designed for a non-technical staff to manage easily.</p>
+                        <ul class="grid md:grid-cols-2 gap-4">
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">WordPress Consolidation</strong> Merge 5 legacy sites into one modern, responsive platform.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Mindbody Branded Web</strong> Inject native widgets for Schedule, Appointments, and Cart flows.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Location-Based Routing</strong> Dynamic JavaScript routing to load correct pricing/widgets based on user's selected clinic.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Legacy Device Testing</strong> Ensuring full functionality on the older iPads used by in-clinic staff.</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="track2" class="tab-content hidden fade-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Scanner Edge Agent (Zero-Touch Sync)</h3>
+                        <p class="text-gray-600 mb-6">The "Special Purpose" component. A lightweight service linking hardware to the cloud to eliminate manual data entry.</p>
+                        <div class="bg-slate-800 text-white rounded-lg p-6 mb-4">
+                            <div class="flex items-center justify-between mb-4 pb-4 border-b border-slate-700">
+                                <div class="text-center"><span class="block text-2xl mb-1">&#128187;</span> Scanner Hardware</div>
+                                <div class="text-teal-400 font-bold tracking-widest">&#10230; DICOM/HL7 &#10230;</div>
+                                <div class="text-center"><span class="block text-2xl mb-1">&#9881;</span> Edge Agent</div>
+                                <div class="text-teal-400 font-bold tracking-widest">&#10230; TLS 1.3 &#10230;</div>
+                                <div class="text-center"><span class="block text-2xl mb-1">&#9729;</span> Mindbody Cloud</div>
+                            </div>
+                            <ul class="text-sm space-y-2 text-slate-300">
+                                <li><strong class="text-white">Ingestion:</strong> Service monitors local folders for DICOM/HL7 exports.</li>
+                                <li><strong class="text-white">Mapping:</strong> Parses metadata (Patient ID) to identify correct profile.</li>
+                                <li><strong class="text-white">Security & Sync:</strong> Encrypted upload via Document API; local file purged instantly.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="track3" class="tab-content hidden fade-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Migration & Consolidation</h3>
+                        <p class="text-gray-600 mb-6">Unifying historical data across the organization to create a single "Source of Truth" in Mindbody.</p>
+                        <ul class="grid md:grid-cols-2 gap-4">
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Extraction</strong> Secure export from 5 disparate Square Appointments databases.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Sanitization</strong> De-duplicating records to prevent overlapping patient histories.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Record Mapping</strong> Assigning unified Mindbody IDs to legacy Square client files.</li>
+                            <li class="bg-gray-50 p-4 rounded border border-gray-100"><strong class="block text-teal-800">Payment Tokens</strong> Securely migrating active payment profiles where supported.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roi" class="py-16 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Operational Impact: Achieving the 25% Reduction</h2>
+                <p class="text-lg text-gray-600 max-w-3xl">
+                    By combining financial incentives with frictionless technology, we project a rapid decline in no-shows and front-desk phone calls. The visualization below models the anticipated 6-month trajectory based on the implementation of the Mindbody Engagement Engine.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <div class="chart-container">
+                        <canvas id="roiChart"></canvas>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Financial Commitment</h4>
+                            <p class="text-gray-600">Every booking mandates a Card-on-File via Mindbody Payments, introducing a psychological and financial deterrent to skipping appointments.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">SMS Active-Confirm</h4>
+                            <p class="text-gray-600">Automated 24-hour SMS pushes requiring a "Reply 1 to confirm." Staff immediately know which limited appointments require manual follow-up.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Frictionless Rescheduling</h4>
+                            <p class="text-gray-600">SMS and User Portal include a self-service "Reschedule" button, capturing cancellations instantly without phone calls.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900">Automatic Waivers</h4>
+                            <p class="text-gray-600">Liability and minor consent forms are injected directly into the digital booking flow, stopping lobby bottlenecks before they start.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Implementation Roadmap</h2>
+                <p class="text-lg text-gray-600">A tightly managed, phased rollout to mitigate operational risk across the 5 clinics.</p>
+            </div>
+
+            <div class="relative border-l-4 border-teal-200 ml-4 md:ml-0 md:mx-auto pl-6 md:pl-0 space-y-10" style="max-width: 600px;">
+                <div class="relative md:flex items-center justify-between md:ml-0">
+                    <div class="hidden md:block w-2/5 text-right pr-6 font-bold text-teal-700">Weeks 1-2</div>
+                    <div class="absolute -left-[35px] md:left-1/2 md:-ml-[10px] w-5 h-5 rounded-full bg-teal-600 border-4 border-white shadow"></div>
+                    <div class="md:w-1/2 md:pl-6">
+                        <h4 class="text-lg font-bold text-gray-900 md:hidden mb-1">Weeks 1-2</h4>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
+                            <strong class="block text-teal-800">Foundation</strong>
+                            <p class="text-gray-600 text-sm">Data Migration (Square to Mindbody) & WP Environment Setup.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative md:flex items-center justify-between md:flex-row-reverse md:ml-0">
+                    <div class="hidden md:block w-2/5 text-left pl-6 font-bold text-teal-700">Weeks 3-4</div>
+                    <div class="absolute -left-[35px] md:left-1/2 md:-ml-[10px] w-5 h-5 rounded-full bg-teal-600 border-4 border-white shadow"></div>
+                    <div class="md:w-1/2 md:pr-6 text-left md:text-right">
+                        <h4 class="text-lg font-bold text-gray-900 md:hidden mb-1">Weeks 3-4</h4>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
+                            <strong class="block text-teal-800">The Pilot Launch</strong>
+                            <p class="text-gray-600 text-sm">Deploy Full Stack (UI + Edge Agent) at the highest-readiness location.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative md:flex items-center justify-between md:ml-0">
+                    <div class="hidden md:block w-2/5 text-right pr-6 font-bold text-teal-700">Week 5</div>
+                    <div class="absolute -left-[35px] md:left-1/2 md:-ml-[10px] w-5 h-5 rounded-full bg-teal-600 border-4 border-white shadow"></div>
+                    <div class="md:w-1/2 md:pl-6">
+                        <h4 class="text-lg font-bold text-gray-900 md:hidden mb-1">Week 5</h4>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
+                            <strong class="block text-teal-800">Validation & Burn-in</strong>
+                            <p class="text-gray-600 text-sm">Monitor stability, confirm iPad performance, adjust routing logic.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative md:flex items-center justify-between md:flex-row-reverse md:ml-0">
+                    <div class="hidden md:block w-2/5 text-left pl-6 font-bold text-teal-700">Weeks 6-8</div>
+                    <div class="absolute -left-[35px] md:left-1/2 md:-ml-[10px] w-5 h-5 rounded-full bg-teal-600 border-4 border-white shadow"></div>
+                    <div class="md:w-1/2 md:pr-6 text-left md:text-right">
+                        <h4 class="text-lg font-bold text-gray-900 md:hidden mb-1">Weeks 6-8</h4>
+                        <div class="bg-white p-4 rounded shadow-sm border border-gray-100">
+                            <strong class="block text-teal-800">Global Rollout</strong>
+                            <p class="text-gray-600 text-sm">Hard-cutover of remaining 4 locations via Sunday/Monday deployments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="investment" class="py-16 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Investment Tiers</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Select a tier below to view included capabilities. All tiers include dedicated Project Management and rigorous Production Readiness testing.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                
+                <div class="tier-card cursor-pointer bg-white border-2 border-gray-200 rounded-2xl p-8 transition hover:shadow-lg hover:border-teal-300" data-tier="1">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Option 1: Baseline</h3>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$20,000</div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> WP Consolidation</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Standard Widget Embeds</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Single DB Migration</li>
+                        <li class="flex items-center gap-2 text-gray-300"><span class="text-gray-300">&#10007;</span> Online Waivers / Card-on-File</li>
+                        <li class="flex items-center gap-2 text-gray-300"><span class="text-gray-300">&#10007;</span> Edge Agent Scanner Sync</li>
+                    </ul>
+                    <button class="w-full py-2 px-4 rounded border border-teal-600 text-teal-700 font-semibold hover:bg-teal-50 transition btn-select">Select Baseline</button>
+                </div>
+
+                <div class="tier-card cursor-pointer bg-white border-2 border-teal-500 rounded-2xl p-8 transition hover:shadow-lg relative transform md:-translate-y-4 shadow-md" data-tier="2">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Recommended Base</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Option 2: Advanced</h3>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$40,000</div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> All Baseline Features</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Online Waivers Integration</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Card-on-File Payments</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Custom Location Routing</li>
+                        <li class="flex items-center gap-2 text-gray-300"><span class="text-gray-300">&#10007;</span> Edge Agent Scanner Sync</li>
+                    </ul>
+                    <button class="w-full py-2 px-4 rounded bg-teal-600 text-white font-semibold hover:bg-teal-700 transition btn-select">Selected Tier</button>
+                </div>
+
+                <div class="tier-card cursor-pointer bg-white border-2 border-gray-200 rounded-2xl p-8 transition hover:shadow-lg hover:border-teal-300" data-tier="3">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Option 3: Full Scope</h3>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$60,000</div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> All Advanced Features</li>
+                        <li class="flex items-center gap-2 font-bold text-teal-800"><span class="text-teal-500">&#10003;</span> DICOM/HL7 Automation Engine</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> White-Glove Pilot Mgmt</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Full End-to-End Testing</li>
+                        <li class="flex items-center gap-2"><span class="text-teal-500">&#10003;</span> Maximum ROI Potential</li>
+                    </ul>
+                    <button class="w-full py-2 px-4 rounded border border-teal-600 text-teal-700 font-semibold hover:bg-teal-50 transition btn-select">Select Full Scope</button>
+                </div>
+
+            </div>
+
+            <div id="selection-summary" class="mt-10 max-w-3xl mx-auto bg-teal-50 p-6 rounded-lg border border-teal-200 text-center fade-in">
+                <h4 class="font-bold text-teal-800 mb-2">Selected: Option 2 (Advanced) - $40,000</h4>
+                <p class="text-gray-700 text-sm">You have selected the Advanced package. To proceed to the next step, we will draft a formal SOW matching this scope and schedule a brief Scanner Audit with onsite IT.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 py-12 text-center border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-white text-2xl font-bold mb-6">Next Steps</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-8 mb-8">
+                <div class="text-slate-400"><strong class="text-white block mb-1">1. SOW Approval</strong> Finalize Tier & timeline.</div>
+                <div class="text-slate-400"><strong class="text-white block mb-1">2. Tech Access</strong> WP & Mindbody Credentials.</div>
+                <div class="text-slate-400"><strong class="text-white block mb-1">3. Scanner Audit</strong> 15-min sync with IT.</div>
+            </div>
+            <a href="mailto:joshua@example.com" class="inline-block bg-teal-600 text-white px-8 py-3 rounded-md font-bold hover:bg-teal-500 transition shadow-lg">Approve SOW & Start Project</a>
+            <p class="mt-8 text-slate-500 text-sm">&copy; 2026 Joshua Pellerin, Senior Professional Services</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    
+                    tabBtns.forEach(b => {
+                        b.classList.remove('text-teal-700', 'bg-teal-50', 'border-teal-500', 'border-b-2');
+                        b.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:bg-gray-50');
+                    });
+                    
+                    btn.classList.add('text-teal-700', 'bg-teal-50', 'border-teal-500', 'border-b-2');
+                    btn.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:bg-gray-50');
+
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+
+            const tierCards = document.querySelectorAll('.tier-card');
+            const summaryBox = document.getElementById('selection-summary');
+            const summaryTitle = summaryBox.querySelector('h4');
+            const summaryText = summaryBox.querySelector('p');
+
+            const tierData = {
+                "1": { name: "Option 1 (Baseline)", price: "$20,000", desc: "You have selected the Baseline package. To proceed, we will draft a formal SOW matching this scope for WP consolidation and data migration." },
+                "2": { name: "Option 2 (Advanced)", price: "$40,000", desc: "You have selected the Advanced package. To proceed, we will draft a formal SOW matching this scope, adding essential payment and routing UX flows." },
+                "3": { name: "Option 3 (Full Scope)", price: "$60,000", desc: "Excellent choice. You have selected the Full Scope package guaranteeing maximum ROI. To proceed, we will draft the SOW and schedule the immediate DICOM/HL7 Scanner Audit with your IT team." }
+            };
+
+            tierCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    tierCards.forEach(c => {
+                        c.classList.remove('border-teal-500', 'shadow-md', 'transform', 'md:-translate-y-4');
+                        c.classList.add('border-gray-200');
+                        const btn = c.querySelector('.btn-select');
+                        btn.classList.remove('bg-teal-600', 'text-white');
+                        btn.classList.add('border', 'border-teal-600', 'text-teal-700');
+                        btn.textContent = `Select ${c.querySelector('h3').textContent.split(': ')[1]}`;
+                    });
+
+                    card.classList.remove('border-gray-200');
+                    card.classList.add('border-teal-500', 'shadow-md', 'transform', 'md:-translate-y-4');
+                    const selectedBtn = card.querySelector('.btn-select');
+                    selectedBtn.classList.remove('border', 'border-teal-600', 'text-teal-700');
+                    selectedBtn.classList.add('bg-teal-600', 'text-white');
+                    selectedBtn.textContent = 'Selected Tier';
+
+                    const tierId = card.getAttribute('data-tier');
+                    const data = tierData[tierId];
+                    summaryTitle.textContent = `Selected: ${data.name} - ${data.price}`;
+                    summaryText.textContent = data.desc;
+                    
+                    summaryBox.classList.remove('fade-in');
+                    void summaryBox.offsetWidth;
+                    summaryBox.classList.add('fade-in');
+                });
+            });
+
+            let chartInstance = null;
+            const ctx = document.getElementById('roiChart').getContext('2d');
+            
+            const initChart = () => {
+                if (chartInstance) chartInstance.destroy();
+                chartInstance = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Current Month', 'Month 2', 'Month 4', 'Month 6 (Target)'],
+                        datasets: [
+                            {
+                                label: 'Est. Weekly No-Shows',
+                                data: [120, 105, 95, 90],
+                                backgroundColor: '#EA580C',
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'Est. Daily Calls',
+                                data: [80, 70, 60, 56],
+                                backgroundColor: '#0F766E',
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Volume'
+                                }
+                            }
+                        },
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        }
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initChart();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(document.getElementById('roiChart'));
+        });
+    </script>
 </body>
 </html>
