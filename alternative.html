@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vital Bone Wellness: Unified Integration & Compliance Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Professional Slate & Clinical Teal -->
+    <!-- Application Structure Plan: Narrative dashboard designed for executive buy-in. It highlights the ROI metrics immediately, followed by a technical breakdown of the 'Zero-Touch' scanner integration, a dedicated section on HIPAA/BAA compliance to address legal risk, and a transparent pricing tier model. The flow moves from Business Value -> Technical Execution -> Risk Mitigation. -->
+    <!-- Visualization & Content Choices: 1. Hero Metrics: Tailwind stats for immediate ROI visibility. 2. 3-Track Plan: Interactive JS tabs to explain parallel workstreams. 3. Hologic Deep Dive: UI-based architecture diagram (NO SVG) explaining the APEX/IRIS bridge. 4. Compliance Section: Dedicated block highlighting the Mindbody BAA. 5. ROI Chart: Chart.js visualization of target no-show reduction. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body { 
+            background-color: #F8FAFC; 
+            color: #0F172A; 
+            scroll-behavior: smooth;
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px; 
+            max-height: 400px; 
+        }
+        @media (min-width: 768px) { 
+            .chart-container { height: 350px; } 
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .compliance-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 font-bold text-teal-900 text-xl">
+                    <span class="p-1 bg-teal-600 text-white rounded">&#10022;</span> Vital Bone Wellness
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#architecture" class="text-slate-600 hover:text-teal-700 text-sm font-medium transition">Architecture</a>
+                    <a href="#hologic" class="text-slate-600 hover:text-teal-700 text-sm font-medium transition">Scanner Sync</a>
+                    <a href="#compliance" class="text-slate-600 hover:text-teal-700 text-sm font-medium transition">Compliance</a>
+                    <a href="#investment" class="bg-teal-700 text-white hover:bg-teal-800 px-4 py-2 rounded-md text-sm font-medium transition shadow-sm">View Investment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in" style="animation-delay: 0.1s;">
+            <p class="text-teal-600 font-bold tracking-widest uppercase text-xs mb-4">Senior Professional Services Engagement</p>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight mb-6">Unified Clinical Integration</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600 mb-10">
+                Transforming five wellness locations into a high-performance clinical network. Automating Hologic DXA workflows while securing patient data with Enterprise-grade compliance.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-3xl font-bold text-teal-600 mb-1">25%</div>
+                    <div class="text-[10px] uppercase font-black text-slate-400">No-Show Reduction</div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-3xl font-bold text-teal-600 mb-1">30%</div>
+                    <div class="text-[10px] uppercase font-black text-slate-400">Call Reduction</div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-3xl font-bold text-teal-600 mb-1">$60k</div>
+                    <div class="text-[10px] uppercase font-black text-slate-400">Project Budget</div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-200">
+                    <div class="text-3xl font-bold text-teal-600 mb-1">8wk</div>
+                    <div class="text-[10px] uppercase font-black text-slate-400">Target Timeline</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/3">
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tighter">The 3-Track Strategy</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        To achieve this transformation in 8 weeks, we parallelize the frontend UX, medical device connectivity, and data migration workstreams. This prevents hardware delays from stalling your web launch.
+                    </p>
+                    <div class="space-y-4">
+                        <button class="track-btn w-full p-4 text-left border-l-4 border-teal-600 bg-teal-50 font-bold transition" data-track="1">
+                            Track 1: Managed Web & Widgets
+                        </button>
+                        <button class="track-btn w-full p-4 text-left border-l-4 border-slate-100 hover:bg-slate-50 font-medium transition" data-track="2">
+                            Track 2: Hologic Clinical Sync
+                        </button>
+                        <button class="track-btn w-full p-4 text-left border-l-4 border-slate-100 hover:bg-slate-50 font-medium transition" data-track="3">
+                            Track 3: Legacy Data Migration
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="lg:w-2/3 bg-slate-50 rounded-2xl p-8 border border-slate-200 min-h-[400px]">
+                    <div id="track-content-1" class="track-content fade-in">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Unified Web Presence</h3>
+                        <p class="text-slate-600 mb-6">Consolidating five legacy sites into a singular, high-performance WordPress platform optimized for older iPad hardware.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
+                                <span class="text-teal-600 font-bold block mb-1">Dynamic Routing</span>
+                                <span class="text-sm text-slate-500">Location-aware widgets to handle variable pricing for high-COL areas.</span>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
+                                <span class="text-teal-600 font-bold block mb-1">Mobile Optimized</span>
+                                <span class="text-sm text-slate-500">Lightweight CSS/JS ensuring standard widgets run smoothly on clinic iPads.</span>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
+                                <span class="text-teal-600 font-bold block mb-1">Self-Service</span>
+                                <span class="text-sm text-slate-500">Portal enabling patients to reschedule, sign waivers, and view results online.</span>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
+                                <span class="text-teal-600 font-bold block mb-1">Card-on-File</span>
+                                <span class="text-sm text-slate-500">Integrated Mindbody Payments for automated no-show fee enforcement.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="track-content-2" class="track-content hidden fade-in">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Hologic Clinical Integration</h3>
+                        <p class="text-slate-600 mb-6">Bridging the Hologic Horizon hardware to the Cloud. This tier moves your clinicians from manual printing to automated digital archiving.</p>
+                        <div class="bg-teal-900 text-white p-6 rounded-lg mb-4 text-center">
+                            <div class="flex justify-between items-center text-xs font-mono uppercase tracking-widest opacity-80">
+                                <span>Horizon DXA</span>
+                                <span>Playlist Edge</span>
+                                <span>Mindbody Cloud</span>
+                            </div>
+                            <div class="my-4 h-1 bg-teal-800 relative rounded-full">
+                                <div class="absolute w-4 h-4 rounded-full bg-teal-400 top-1/2 left-0 -translate-y-1/2 shadow-lg"></div>
+                                <div class="absolute w-4 h-4 rounded-full bg-teal-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg"></div>
+                                <div class="absolute w-4 h-4 rounded-full bg-teal-400 top-1/2 right-0 -translate-y-1/2 shadow-lg"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] font-bold">
+                                <span>IRIS/APEX Export</span>
+                                <span>Metadata Parsing</span>
+                                <span>Secure PHI Sync</span>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-2 text-slate-600">
+                            <li><strong>HL7 ORU Messages:</strong> Capturing discrete scan results (T-scores) automatically.</li>
+                            <li><strong>DICOM Mapping:</strong> Extracting patient IDs to match scanner data to client profiles.</li>
+                            <li><strong>Zero-Touch:</strong> Reports appear on user profiles 60 seconds after scan completion.</li>
+                        </ul>
+                    </div>
+                    <div id="track-content-3" class="track-content hidden fade-in">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Migration & Sanitization</h3>
+                        <p class="text-slate-600 mb-6">Securing the history of your 5 separate clinics. We create a clean "Source of Truth" to prevent patient record overlap.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-slate-600"><span class="text-teal-500">&#10003;</span> Mapping 5 Square DBs to 1 Unified Mindbody Schema</li>
+                            <li class="flex items-center gap-3 text-slate-600"><span class="text-teal-500">&#10003;</span> Intelligent De-duplication by Email & Phone</li>
+                            <li class="flex items-center gap-3 text-slate-600"><span class="text-teal-500">&#10003;</span> Secure migration of active Credit Card tokens</li>
+                            <li class="flex items-center gap-3 text-slate-600"><span class="text-teal-500">&#10003;</span> PHI-Compliant historical clinical report migration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hologic Tech Deep Dive -->
+    <section id="hologic" class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-black text-slate-900 mb-4">The Hologic Horizon "Paperless" Bridge</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Leveraging native hardware capabilities to eliminate manual printing and staff data re-entry.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-700 text-2xl mb-6">&#9881;</div>
+                    <h4 class="text-lg font-bold mb-3 text-slate-900">IRIS Connectivity</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">We tap into the Horizon's IRIS suite to capture outbound DICOM Secondary Captures and HL7 ORU result messages the moment they are generated.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-700 text-2xl mb-6">&#128100;</div>
+                    <h4 class="text-lg font-bold mb-3 text-slate-900">Physician's Viewer</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Integration with the Report Writer ensures that finalized clinical interpretations are synced to patient portals as soon as the clinician signs off.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-700 text-2xl mb-6">&#128187;</div>
+                    <h4 class="text-lg font-bold mb-3 text-slate-900">APEX Integration</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Our Edge Agent runs alongside Hologic's APEX software, monitoring 'delta-exports' to ensure 100% data reliability even during internet outages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section id="compliance" class="py-24 compliance-gradient text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-teal-500 rounded-full text-[10px] font-black uppercase mb-6">Regulatory Compliance</div>
+                    <h2 class="text-4xl font-black mb-6 leading-tight">Securing PHI with the Mindbody BAA</h2>
+                    <p class="text-slate-300 text-lg mb-8">
+                        DEXA scans are Protected Health Information (PHI). To protect Vital Bone Wellness from legal liability, we facilitate a **Business Associate Agreement (BAA)** with Mindbody from day one.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 bg-slate-800 rounded text-teal-400 font-bold">&#10003;</div>
+                            <div>
+                                <h5 class="font-bold">HIPAA Compliant Storage</h5>
+                                <p class="text-sm text-slate-400">Reports are stored in Mindbody's encrypted clinical document silos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 bg-slate-800 rounded text-teal-400 font-bold">&#10003;</div>
+                            <div>
+                                <h5 class="font-bold">Encryption at Rest & Transit</h5>
+                                <p class="text-sm text-slate-400">Using TLS 1.3 and AES-256 standards for all scanner-to-cloud transfers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 bg-slate-800 rounded text-teal-400 font-bold">&#10003;</div>
+                            <div>
+                                <h5 class="font-bold">Clinician-Only Access</h5>
+                                <p class="text-sm text-slate-400">Strict permission mapping ensuring only authorized staff view sensitive data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-slate-800/50 backdrop-blur p-8 rounded-2xl border border-slate-700">
+                        <div class="chart-container">
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                        <p class="mt-6 text-xs text-slate-500 text-center uppercase tracking-widest">Target ROI: 25% Reduction in No-Shows over 6 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-slate-900 mb-4">Investment Tiers</h2>
+                <p class="text-slate-600">Phased options to allow Vital Bone Wellness to scale from digital consolidation to full clinical automation.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Option 1 -->
+                <div class="tier-card p-8 rounded-2xl border-2 border-slate-100 hover:border-teal-200 transition bg-white flex flex-col cursor-pointer" onclick="updateSelection(1)">
+                    <h4 class="text-xl font-bold mb-2">Option 1: Baseline</h4>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$20,000</div>
+                    <ul class="space-y-3 text-sm text-slate-500 flex-grow mb-10">
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Consolidated Web Presence</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Migrated Square DB (5 to 1)</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Unified Booking Flow</li>
+                        <li class="flex items-center gap-2 opacity-30">&#10007; Automated Clinical Sync</li>
+                        <li class="flex items-center gap-2 opacity-30">&#10007; PHI HIPAA Compliance/BAA</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border-2 border-teal-600 text-teal-600 font-bold hover:bg-teal-50 transition">Select Baseline</button>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="tier-card p-8 rounded-2xl border-4 border-teal-600 shadow-xl transition bg-white flex flex-col transform md:-translate-y-4 relative cursor-pointer" onclick="updateSelection(2)">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2 bg-teal-600 text-white px-3 py-1 rounded text-[10px] font-black uppercase">Recommended</div>
+                    <h4 class="text-xl font-bold mb-2">Option 2: Advanced</h4>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$40,000</div>
+                    <ul class="space-y-3 text-sm text-slate-500 flex-grow mb-10">
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; All Baseline Features</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Card-on-File Payments</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; HIPAA BAA Facilitation</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Self-Service Patient Portal</li>
+                        <li class="flex items-center gap-2 opacity-30">&#10007; Automated Clinical Sync</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg bg-teal-600 text-white font-bold hover:bg-teal-700 transition">Selected Tier</button>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="tier-card p-8 rounded-2xl border-2 border-slate-100 hover:border-teal-200 transition bg-white flex flex-col cursor-pointer" onclick="updateSelection(3)">
+                    <h4 class="text-xl font-bold mb-2">Option 3: Full Scope</h4>
+                    <div class="text-3xl font-black text-teal-700 mb-6">$60,000</div>
+                    <ul class="space-y-3 text-sm text-slate-500 flex-grow mb-10">
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; All Advanced Features</li>
+                        <li class="flex items-center gap-2 font-black text-teal-700">&#10003; Hologic Automation Engine</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; IRIS/HL7/DICOM Sync</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Multi-Location Cutover Mgmt</li>
+                        <li class="flex items-center gap-2 font-bold text-slate-800">&#10003; Maximum ROI Realization</li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border-2 border-teal-600 text-teal-600 font-bold hover:bg-teal-50 transition">Select Full Scope</button>
+                </div>
+            </div>
+
+            <!-- Selection Detail -->
+            <div id="selection-box" class="mt-16 max-w-3xl mx-auto bg-slate-50 border border-slate-200 p-8 rounded-xl text-center fade-in">
+                <h5 class="text-xl font-bold text-slate-900 mb-2" id="sel-title">Option 2 (Advanced) - $40,000</h5>
+                <p class="text-slate-600 text-sm mb-6" id="sel-desc">This scope addresses the 25% no-show reduction through card-on-file payments and secures your patient data under a legal BAA. It provides a robust foundation for future scanner automation.</p>
+                <a href="#" class="inline-block px-10 py-4 bg-teal-700 text-white rounded font-black uppercase tracking-widest text-xs hover:bg-teal-800 transition">Approve Statement of Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 text-slate-500 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="mb-2">Playlist Professional Services &copy; 2026</p>
+            <p>Designed for Vital Bone Wellness pilot rollout.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Track Navigation Logic
+        const trackBtns = document.querySelectorAll('.track-btn');
+        const trackContents = document.querySelectorAll('.track-content');
+
+        trackBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const trackId = btn.getAttribute('data-track');
+                
+                trackBtns.forEach(b => {
+                    b.classList.remove('border-teal-600', 'bg-teal-50', 'font-bold');
+                    b.classList.add('border-slate-100', 'font-medium');
+                });
+                
+                btn.classList.add('border-teal-600', 'bg-teal-50', 'font-bold');
+                btn.classList.remove('border-slate-100', 'font-medium');
+
+                trackContents.forEach(c => c.classList.add('hidden'));
+                document.getElementById(`track-content-${trackId}`).classList.remove('hidden');
+            });
+        });
+
+        // Investment Selection Logic
+        const selectionBox = document.getElementById('selection-box');
+        const selTitle = document.getElementById('sel-title');
+        const selDesc = document.getElementById('sel-desc');
+
+        function updateSelection(tier) {
+            const tiers = {
+                1: ["Option 1 (Baseline) - $20,000", "Focuses on digital consolidation. Migrates 5 databases and 5 websites into a single, unified WordPress managed platform."],
+                2: ["Option 2 (Advanced) - $40,000", "Our recommended starting point. Secures patient data via BAA, implements no-show prevention tech, and provides a patient portal."],
+                3: ["Option 3 (Full Scope) - $60,000", "The premium clinical solution. Automates Hologic medical scanner workflows, eliminating 100% of report-related manual staff labor."]
+            };
+
+            selTitle.innerText = tiers[tier][0];
+            selDesc.innerText = tiers[tier][1];
+            
+            // Animation refresh
+            selectionBox.style.animation = 'none';
+            selectionBox.offsetHeight; 
+            selectionBox.style.animation = null;
+        }
+
+        // ROI Chart Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Launch', 'Mo 1', 'Mo 2', 'Mo 3', 'Mo 4', 'Mo 5', 'Mo 6'],
+                    datasets: [{
+                        label: 'No-Show Rate (%)',
+                        data: [35, 32, 28, 26, 22, 18, 15],
+                        borderColor: '#2dd4bf',
+                        backgroundColor: 'rgba(45, 212, 191, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 4,
+                        pointRadius: 0
+                    },
+                    {
+                        label: 'Scheduling Phone Calls (x10)',
+                        data: [50, 48, 42, 38, 35, 32, 30],
+                        borderColor: '#94a3b8',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.1,
+                        borderWidth: 2,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#94a3b8', font: { weight: 'bold', size: 10 } }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
